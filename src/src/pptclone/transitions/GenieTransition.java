@@ -28,7 +28,7 @@ public class GenieTransition extends Transition {
     }
     
     /** Draw the next frame of the transition **/
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         int lastw=glPanel.screenwidth,lasth=glPanel.screenheight;
         
         if(firstcall){
@@ -36,23 +36,23 @@ public class GenieTransition extends Transition {
             
             //Allocate texture.
             gl.glEnable(gl.GL_TEXTURE_2D);
-            texin = BufferUtil.newByteBuffer(512 * 512 * 3);  //I'm going to do a 256x256 RGB texture
+            texin = ByteBuffer.allocate(512 * 512 * 3);  //I'm going to do a 256x256 RGB texture
             texin.limit(texin.capacity()); //Resize the buffer, to save memory.
-            texout = BufferUtil.newByteBuffer(512 * 512 * 3);  //I'm going to do a 256x256 RGB texture
+            texout = ByteBuffer.allocate(512 * 512 * 3);  //I'm going to do a 256x256 RGB texture
             texout.limit(texout.capacity()); //Resize the buffer, to save memory.
             gl.glGenTextures(2, textures, 0); //Generate two textures
             gl.glBindTexture(gl.GL_TEXTURE_2D, textures[0]); //Tell OpenGL I'm working with the texture that was just created
             gl.glTexImage2D(textures[0], 0, gl.GL_RGB, 512, 512, 0, gl.GL_RGB, gl.GL_UNSIGNED_BYTE, texin);
             //Tell OpenGL to use the buffer I allocated above to store the texture
-            gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
-            gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
+            gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
+            gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
             //Without these filters, the texture shows up as a grey box for some reason.
 
             gl.glBindTexture(gl.GL_TEXTURE_2D, textures[1]); //Tell OpenGL I'm working with the texture that was just created
             gl.glTexImage2D(textures[1], 0, gl.GL_RGB, 512, 512, 0, gl.GL_RGB, gl.GL_UNSIGNED_BYTE, texout);
             //Tell OpenGL to use the buffer I allocated above to store the texture
-            gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
-            gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
+            gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
+            gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
             //Without these filters, the texture shows up as a grey box for some reason.
         }
         

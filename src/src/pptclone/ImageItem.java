@@ -4,13 +4,13 @@
  */
 package pptclone;
 
-import javax.media.opengl.GL;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
 
 public class ImageItem implements DrawableItem{
     private double xloc=0.5,yloc=0.5; //Locations are from 0 to 1. Allows for resolution independence.
     private double width=0.2,height=0.2; //Width and height of the image
-    private String path="C:\\bobross.jpg";
+    private String path="";
     private int layer=0; //What layer am I on?
     private float visibility=1.0f; //How visible?
     private TextureLoader.Texture texture = null;
@@ -33,7 +33,7 @@ public class ImageItem implements DrawableItem{
         }
     }
     
-    /** Create a new text item with all of the parameters.
+    /** Create a new image item with all of the parameters.
      * @param xloc X position
      * @param yloc Y position
      * @param font Preferred font
@@ -61,17 +61,17 @@ public class ImageItem implements DrawableItem{
     /** Draw this text string
      * @param gl The GL context to draw into.
      */
-    public void drawItem(GL gl) {
+    public void drawItem(GL2 gl) {
         //Draw textured quadrilateral
         GLU glu = new GLU();
-        
+              
         gl.glEnable(gl.GL_TEXTURE_2D); //Enable textures
         if(texid<0)
             texid = (texture != null)? texture.toGL(gl, glu, true): -1;
         else
             gl.glBindTexture(gl.GL_TEXTURE_2D, texid); //Bind to the texture we copied the framebuffer into
         
-        gl.glBegin(GL.GL_QUADS);
+        gl.glBegin(GL2.GL_QUADS);
         {
             gl.glTexCoord2f(0.0f, 0.0f);
             gl.glVertex3d(xloc, height, -5.0); // Top Left Of The Texture and Quad

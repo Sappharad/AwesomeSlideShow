@@ -8,10 +8,11 @@ package pptclone;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.media.opengl.*;
-import com.sun.opengl.util.*;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.util.*;
 import java.util.ArrayList;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.glu.GLU;
 import pptclone.transitions.*;
 
 public class glPanel extends GLCanvas implements GLEventListener {
@@ -31,18 +32,18 @@ public class glPanel extends GLCanvas implements GLEventListener {
     
     /** Initialize this GL drawing area **/
     public void init(GLAutoDrawable drawable) {
-        GL gl = drawable.getGL();
+        GL2 gl = (GL2)drawable.getGL();
         System.err.println("INIT GL IS: " + gl.getClass().getName());
         
-        screenheight = drawable.getHeight();
-        screenwidth = drawable.getWidth(); //Defaults
+        screenheight = drawable.getSurfaceHeight();
+        screenwidth = drawable.getSurfaceWidth(); //Defaults
 
         // Enable VSync
         gl.setSwapInterval(1);
 
         // Setup the drawing area and shading mode
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        gl.glShadeModel(GL.GL_SMOOTH); // try setting this to GL_FLAT and see what happens.
+        gl.glShadeModel(GL2.GL_SMOOTH); // try setting this to GL_FLAT and see what happens.
         
         //Create our end of show slide
         endOfShow.addItem(new TextItem("End of slide show.",0.1,0.1,"Arial",8.0f,1.0f,1.0f,1.0f,1.0f,0));
@@ -53,7 +54,7 @@ public class glPanel extends GLCanvas implements GLEventListener {
 
     /** Window has been resized. Update the viewing area. Called automatically. **/
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-        GL gl = drawable.getGL();
+        GL2 gl = (GL2)drawable.getGL();
         GLU glu = new GLU();
 
         if (height <= 0) // avoid a divide by zero error!
@@ -64,10 +65,10 @@ public class glPanel extends GLCanvas implements GLEventListener {
         glPanel.screenheight = height;
         final float h = (float) width / (float) height;
         gl.glViewport(0, 0, width, height);
-        gl.glMatrixMode(GL.GL_PROJECTION);
+        gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
         glu.gluPerspective(45.0f, h, 1.0, 2000.0);
-        gl.glMatrixMode(GL.GL_MODELVIEW);
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         
         for(Slide sld : slides)
@@ -79,7 +80,7 @@ public class glPanel extends GLCanvas implements GLEventListener {
      * @param drawable This drawing area
      **/
     public void display(GLAutoDrawable drawable) {
-        GL gl = drawable.getGL();
+        GL2 gl = (GL2)drawable.getGL();
 
         // Clear the drawing area
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
@@ -186,6 +187,9 @@ public class glPanel extends GLCanvas implements GLEventListener {
             }
         }
     }
-    
+
+    public void dispose(GLAutoDrawable glad) {
+        glad.disposeGLEventListener(this, false);
+    }
 }
 

@@ -21,8 +21,8 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 import javax.imageio.ImageIO;
-import javax.media.opengl.GL;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
 
 /**
  * Image loading class that converts BufferedImages into a data
@@ -178,36 +178,36 @@ public class TextureLoader {
          * @param mipmap whether or not to compute mipmaps
          * @return the texture's OpenGL ID.
          */
-        public int toGL(GL gl, GLU glu, boolean mipmap) {
+        public int toGL(GL2 gl, GLU glu, boolean mipmap) {
             // Generate the texture ID
             int[] temp = new int[1];
             int name;
             gl.glGenTextures(1, temp, 0);
             name = temp[0];
 
-            gl.glPixelStorei(GL.GL_UNPACK_ALIGNMENT, 1);
+            gl.glPixelStorei(GL2.GL_UNPACK_ALIGNMENT, 1);
 
             // Bind the texture
-            gl.glBindTexture(GL.GL_TEXTURE_2D, name);
+            gl.glBindTexture(GL2.GL_TEXTURE_2D, name);
 
             // Build Mipmaps 
             if (mipmap) {
                 switch (this.type) {
                     case TEXTURE_3BYTE_RGB:
-                        glu.gluBuild2DMipmaps(GL.GL_TEXTURE_2D,
-                                GL.GL_RGB8,
+                        glu.gluBuild2DMipmaps(GL2.GL_TEXTURE_2D,
+                                GL2.GL_RGB8,
                                 this.width, this.height,
-                                GL.GL_RGB,
-                                GL.GL_UNSIGNED_BYTE,
+                                GL2.GL_RGB,
+                                GL2.GL_UNSIGNED_BYTE,
                                 this.pixels);
                         break;
 
                     case TEXTURE_4BYTE_RGBA:
-                        glu.gluBuild2DMipmaps(GL.GL_TEXTURE_2D,
-                                GL.GL_RGBA,
+                        glu.gluBuild2DMipmaps(GL2.GL_TEXTURE_2D,
+                                GL2.GL_RGBA,
                                 this.width, this.height,
-                                GL.GL_RGBA,
-                                GL.GL_UNSIGNED_BYTE,
+                                GL2.GL_RGBA,
+                                GL2.GL_UNSIGNED_BYTE,
                                 this.pixels);
                         break;
                     default:
@@ -215,27 +215,27 @@ public class TextureLoader {
                 }
 
                 // Assign the mip map levels and texture info
-                gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
-                gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER,
-                        GL.GL_LINEAR_MIPMAP_NEAREST);
-                gl.glTexEnvf(GL.GL_TEXTURE_ENV, GL.GL_TEXTURE_ENV_MODE, GL.GL_MODULATE);
+                gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
+                gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER,
+                        GL2.GL_LINEAR_MIPMAP_NEAREST);
+                gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_MODULATE);
             } else {
                 switch (this.type) {
                     case TEXTURE_3BYTE_RGB:
-                        gl.glTexImage2D(GL.GL_TEXTURE_2D,
-                                0, GL.GL_RGB,
+                        gl.glTexImage2D(GL2.GL_TEXTURE_2D,
+                                0, GL2.GL_RGB,
                                 this.width, this.height, 0,
-                                GL.GL_RGB,
-                                GL.GL_UNSIGNED_BYTE,
+                                GL2.GL_RGB,
+                                GL2.GL_UNSIGNED_BYTE,
                                 this.pixels);
                         break;
 
                     case TEXTURE_4BYTE_RGBA:
-                        gl.glTexImage2D(GL.GL_TEXTURE_2D,
-                                0, GL.GL_RGBA,
+                        gl.glTexImage2D(GL2.GL_TEXTURE_2D,
+                                0, GL2.GL_RGBA,
                                 this.width, this.height, 0,
-                                GL.GL_RGBA,
-                                GL.GL_UNSIGNED_BYTE,
+                                GL2.GL_RGBA,
+                                GL2.GL_UNSIGNED_BYTE,
                                 this.pixels);
                         break;
                     default:
@@ -243,10 +243,10 @@ public class TextureLoader {
                 }
 
                 //Assign the mip map levels and texture info
-                gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
-                gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER,
-                        GL.GL_LINEAR);
-                gl.glTexEnvf(GL.GL_TEXTURE_ENV, GL.GL_TEXTURE_ENV_MODE, GL.GL_MODULATE);
+                gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
+                gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER,
+                        GL2.GL_LINEAR);
+                gl.glTexEnvf(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_MODULATE);
             }
 
             return name;

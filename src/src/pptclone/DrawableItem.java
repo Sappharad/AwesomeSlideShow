@@ -6,10 +6,10 @@
 
 package pptclone;
 
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 public interface DrawableItem {
-    public void drawItem(GL gl); //Draw this item
+    public void drawItem(GL2 gl); //Draw this item
     public void doResize(); //Called automatically when the show is resized.
     public void setLayer(int depth); //Set the depth layer of this item
     public int getLayer(); //Get the index of the layer this item is on

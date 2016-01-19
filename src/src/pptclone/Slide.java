@@ -9,7 +9,7 @@
 package pptclone;
 
 import java.util.ArrayList;
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 public class Slide {
     private ArrayList<DrawableItem> slideitems; //Items in the slide
@@ -37,7 +37,7 @@ public class Slide {
     /** Draw the current slide
      * @param gl The GL context to draw onto.
      */
-    public void drawSlide(GL gl){
+    public void drawSlide(GL2 gl){
         //Draw the background
         //--- Postmortem: Oops! Had the comment here the whole time,
         //--- but I actually do the drawing in the GL panel itself...

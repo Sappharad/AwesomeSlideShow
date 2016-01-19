@@ -6,13 +6,13 @@
  */
 package pptclone.backgrounds;
 
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 
 public class NullBackground implements pptclone.SlideBackground{
 
     /** Draw this background **/
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         //Draw nothing. It works!
     }
 

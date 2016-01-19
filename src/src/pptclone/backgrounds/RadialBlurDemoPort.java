@@ -15,10 +15,9 @@
  */
 package pptclone.backgrounds;
 
-import com.sun.opengl.util.BufferUtil;
 import java.nio.ByteBuffer;
-import javax.media.opengl.GL;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
 import pptclone.glPanel;
 
 
@@ -38,7 +37,7 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
         firstframe=true;
     }
     
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         if(firstframe){
             firstframe=false;
             //Setup code from init
@@ -61,27 +60,27 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
             // And More Ambient Light
             float[] lmodel_ambient = new float[]{0.2f, 0.2f, 0.2f, 1.0f};      
             // Set The Ambient Light Model
-            gl.glLightModelfv(GL.GL_LIGHT_MODEL_AMBIENT, lmodel_ambient, 0);    
+            gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, lmodel_ambient, 0);    
 
             // Set The Global Ambient Light Model
-            gl.glLightModelfv(GL.GL_LIGHT_MODEL_AMBIENT, global_ambient, 0);    
+            gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, global_ambient, 0);    
             // Set The Lights Position
-            gl.glLightfv(GL.GL_LIGHT0, GL.GL_POSITION, light0pos, 0);        
+            gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, light0pos, 0);        
             // Set The Ambient Light
-            gl.glLightfv(GL.GL_LIGHT0, GL.GL_AMBIENT, light0ambient, 0);      
+            gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, light0ambient, 0);      
             // Set The Diffuse Light
-            gl.glLightfv(GL.GL_LIGHT0, GL.GL_DIFFUSE, light0diffuse, 0);      
+            gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, light0diffuse, 0);      
             // Set Up Specular Lighting
-            gl.glLightfv(GL.GL_LIGHT0, GL.GL_SPECULAR, light0specular, 0);
+            gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, light0specular, 0);
 
-            gl.glShadeModel(GL.GL_SMOOTH);  // Select Smooth Shading
+            gl.glShadeModel(GL2.GL_SMOOTH);  // Select Smooth Shading
 
-            gl.glMateriali(GL.GL_FRONT, GL.GL_SHININESS, 128);
+            gl.glMateriali(GL2.GL_FRONT, GL2.GL_SHININESS, 128);
             gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);  // Set The Clear Color To Black
         }
         
-        gl.glEnable(GL.GL_LIGHTING);  // Enable Lighting
-        gl.glEnable(GL.GL_LIGHT0);  // Enable Light0
+        gl.glEnable(GL2.GL_LIGHTING);  // Enable Lighting
+        gl.glEnable(GL2.GL_LIGHT0);  // Enable Light0
         
         long currentTime = System.currentTimeMillis();
         update(currentTime - previousTime);
@@ -89,7 +88,7 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
 
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);  // Set The Clear Color To Black
         // Clear Screen And Depth Buffer
-        gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);    
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);    
         gl.glLoadIdentity();    // Reset The View
         renderToTexture(gl, glu);  // Render To A Texture
         processHelix(gl, glu);    // Draw Our Helix
@@ -97,9 +96,9 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
         
         //Restore clear color, shader model, and lighting
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        gl.glShadeModel(GL.GL_SMOOTH);
-        gl.glDisable(GL.GL_LIGHTING);  // Disable Lighting
-        gl.glDisable(GL.GL_LIGHT0);  // Disable Light0
+        gl.glShadeModel(GL2.GL_SMOOTH);
+        gl.glDisable(GL2.GL_LIGHTING);  // Disable Lighting
+        gl.glDisable(GL2.GL_LIGHT0);  // Disable Light0
     }
 
     /** Get the name of this background. **/
@@ -113,20 +112,21 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
     }
     
     /** Create an empty texture **/
-    private int emptyTexture(GL gl) {  // Create An Empty Texture
+    private int emptyTexture(GL2 gl) {  // Create An Empty Texture
         // Create Storage Space For Texture Data (128x128x4)
-        ByteBuffer data = BufferUtil.newByteBuffer(128 * 128 * 4); 
+        ByteBuffer data = ByteBuffer.allocate(128*128*4);
+        //ByteBuffer data = BufferUtil.newByteBuffer(128 * 128 * 4); 
         data.limit(data.capacity());
 
         int[] txtnumber = new int[1];
         gl.glGenTextures(1, txtnumber, 0);  // Create 1 Texture
-        gl.glBindTexture(GL.GL_TEXTURE_2D, txtnumber[0]);  // Bind The Texture
+        gl.glBindTexture(GL2.GL_TEXTURE_2D, txtnumber[0]);  // Bind The Texture
         
         // Build Texture Using Information In data
-        gl.glTexImage2D(GL.GL_TEXTURE_2D, 0, 4, 128, 128, 0,
-                GL.GL_RGBA, GL.GL_UNSIGNED_BYTE, data);    
-        gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
-        gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
+        gl.glTexImage2D(GL2.GL_TEXTURE_2D, 0, 4, 128, 128, 0,
+                GL2.GL_RGBA, GL2.GL_UNSIGNED_BYTE, data);    
+        gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR);
+        gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
 
         return txtnumber[0];  // Return The Texture ID
     }
@@ -171,7 +171,7 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
     }
 
     /** Create the toroid shape **/
-    private void processHelix(GL gl, GLU glu) {  // Draws A Helix
+    private void processHelix(GL2 gl, GLU glu) {  // Draws A Helix
         float x;      // Helix x Coordinate
         float y;      // Helix y Coordinate
         float z;      // Helix z Coordinate
@@ -193,14 +193,14 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
         gl.glRotatef(angle / 2.0f, 1, 0, 0); // Rotate By angle/2 On The X-Axis
         gl.glRotatef(angle / 3.0f, 0, 1, 0); // Rotate By angle/3 On The Y-Axis
 
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK, GL.GL_AMBIENT_AND_DIFFUSE, 
+        gl.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE, 
                 glfMaterialColor, 0);
         
-        gl.glMaterialfv(GL.GL_FRONT_AND_BACK, GL.GL_SPECULAR, specular, 0);
+        gl.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_SPECULAR, specular, 0);
 
         r = 1.5f;  // Radius
 
-        gl.glBegin(GL.GL_QUADS);  // Begin Drawing Quads
+        gl.glBegin(GL2.GL_QUADS);  // Begin Drawing Quads
         for (phi = 0; phi <= 360; phi += 20.0)  // 360 Degrees In Steps Of 20
         {
             // 360 Degrees * Number Of Twists In Steps Of 20
@@ -287,66 +287,66 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
     }
     
     /** Set up an orthographic view **/
-    private void viewOrtho(GL gl)  // Set Up An Ortho View
+    private void viewOrtho(GL2 gl)  // Set Up An Ortho View
     {
-        gl.glMatrixMode(GL.GL_PROJECTION);  // Select Projection
+        gl.glMatrixMode(GL2.GL_PROJECTION);  // Select Projection
         gl.glPushMatrix();      // Push The Matrix
         gl.glLoadIdentity();      // Reset The Matrix
         gl.glOrtho(0, glPanel.screenwidth, glPanel.screenheight, 0, -1, 1);  // Select Ortho Mode (640x480)
-        gl.glMatrixMode(GL.GL_MODELVIEW);  // Select Modelview Matrix
+        gl.glMatrixMode(GL2.GL_MODELVIEW);  // Select Modelview Matrix
         gl.glPushMatrix();      // Push The Matrix
         gl.glLoadIdentity();      // Reset The Matrix
     }
 
     /** Set up a perspective view **/
-    private void viewPerspective(GL gl)    // Set Up A Perspective View
+    private void viewPerspective(GL2 gl)    // Set Up A Perspective View
     {
-        gl.glMatrixMode(GL.GL_PROJECTION);  // Select Projection
+        gl.glMatrixMode(GL2.GL_PROJECTION);  // Select Projection
         gl.glPopMatrix();      // Pop The Matrix
-        gl.glMatrixMode(GL.GL_MODELVIEW);  // Select Modelview
+        gl.glMatrixMode(GL2.GL_MODELVIEW);  // Select Modelview
         gl.glPopMatrix();      // Pop The Matrix
     }
 
     /** Render the toroid to a texture, so radial blur can be applied. **/
-    private void renderToTexture(GL gl, GLU glu) // Renders To A Texture
+    private void renderToTexture(GL2 gl, GLU glu) // Renders To A Texture
     {
         gl.glViewport(0, 0, 128, 128);    // Set Our Viewport (Match Texture Size)
 
         processHelix(gl, glu);      // Render The Helix
 
         // Bind To The Blur Texture
-        gl.glBindTexture(GL.GL_TEXTURE_2D, blurTexture[0]);  
+        gl.glBindTexture(GL2.GL_TEXTURE_2D, blurTexture[0]);  
 
         // Copy Our ViewPort To The Blur Texture (From 0,0 To 128,128... No Border)
-        gl.glCopyTexImage2D(GL.GL_TEXTURE_2D, 0, GL.GL_LUMINANCE, 0, 0, 128, 128, 0);
+        gl.glCopyTexImage2D(GL2.GL_TEXTURE_2D, 0, GL2.GL_LUMINANCE, 0, 0, 128, 128, 0);
 
         gl.glClearColor(0.0f, 0.0f, 0.5f, 0.5f); // Set The Clear Color To Medium Blue
         // Clear The Screen And Depth Buffer
-        gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);      
+        gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);      
 
         gl.glViewport(0, 0, glPanel.screenwidth, glPanel.screenheight);  // Set Viewport (0,0 to 640x480)
     }
 
     /** Draw the blurred image **/
-    private void drawBlur(GL gl, int times, float inc)  // Draw The Blurred Image
+    private void drawBlur(GL2 gl, int times, float inc)  // Draw The Blurred Image
     {
         float spost = 0.0f;  // Starting Texture Coordinate Offset
         float alpha = 0.2f;  // Starting Alpha Value
 
         // Disable AutoTexture Coordinates
-        gl.glDisable(GL.GL_TEXTURE_GEN_S);
-        gl.glDisable(GL.GL_TEXTURE_GEN_T);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_S);
+        gl.glDisable(GL2.GL_TEXTURE_GEN_T);
 
-        gl.glEnable(GL.GL_TEXTURE_2D);  // Enable 2D Texture Mapping
-        //gl.glDisable(GL.GL_DEPTH_TEST);  // Disable Depth Testing
-        gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE);  // Set Blending Mode
-        gl.glEnable(GL.GL_BLEND);  // Enable Blending
-        gl.glBindTexture(GL.GL_TEXTURE_2D, blurTexture[0]); // Bind To The Blur Texture
+        gl.glEnable(GL2.GL_TEXTURE_2D);  // Enable 2D Texture Mapping
+        //gl.glDisable(GL2.GL_DEPTH_TEST);  // Disable Depth Testing
+        gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE);  // Set Blending Mode
+        gl.glEnable(GL2.GL_BLEND);  // Enable Blending
+        gl.glBindTexture(GL2.GL_TEXTURE_2D, blurTexture[0]); // Bind To The Blur Texture
         viewOrtho(gl);  // Switch To An Ortho View
 
         float alphainc = alpha / times;  // alphainc=0.2f / Times To Render Blur
 
-        gl.glBegin(GL.GL_QUADS);  // Begin Drawing Quads
+        gl.glBegin(GL2.GL_QUADS);  // Begin Drawing Quads
         for (int num = 0; num < times; num++)  // Number Of Times To Render Blur
         {
             gl.glColor4f(1.0f, 1.0f, 1.0f, alpha); // Set The Alpha Value (Starts At 0.2)
@@ -374,12 +374,12 @@ public class RadialBlurDemoPort implements pptclone.SlideBackground{
 
         viewPerspective(gl);  // Switch To A Perspective View
 
-        //gl.glEnable(GL.GL_DEPTH_TEST);  // Enable Depth Testing
-        gl.glDisable(GL.GL_TEXTURE_2D);  // Disable 2D Texture Mapping
-        gl.glDisable(GL.GL_TEXTURE_2D);  // Disable 2D Texture Mapping
-        gl.glDisable(GL.GL_TEXTURE_2D);  // Disable 2D Texture Mapping
-        gl.glDisable(GL.GL_BLEND);  // Disable Blending
-        gl.glBindTexture(GL.GL_TEXTURE_2D, 0);  // Unbind The Blur Texture
+        //gl.glEnable(GL2.GL_DEPTH_TEST);  // Enable Depth Testing
+        gl.glDisable(GL2.GL_TEXTURE_2D);  // Disable 2D Texture Mapping
+        gl.glDisable(GL2.GL_TEXTURE_2D);  // Disable 2D Texture Mapping
+        gl.glDisable(GL2.GL_TEXTURE_2D);  // Disable 2D Texture Mapping
+        gl.glDisable(GL2.GL_BLEND);  // Disable Blending
+        gl.glBindTexture(GL2.GL_TEXTURE_2D, 0);  // Unbind The Blur Texture
     }
 
 }

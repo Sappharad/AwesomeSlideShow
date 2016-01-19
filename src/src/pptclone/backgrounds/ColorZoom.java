@@ -6,9 +6,9 @@
  */
 package pptclone.backgrounds;
 
-import javax.media.opengl.GL;
-import javax.media.opengl.glu.GLU;
-import javax.media.opengl.glu.GLUquadric;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.glu.GLUquadric;
 
 
 public class ColorZoom implements pptclone.SlideBackground{
@@ -16,7 +16,7 @@ public class ColorZoom implements pptclone.SlideBackground{
     private float colbackr,colbackg,colbackb; //Color of the background
     private float colnewr,colnewg,colnewb; //Color of the foreground
     
-    /** Contruct this background, set up default random colors. **/
+    /** Construct this background, set up default random colors. **/
     public ColorZoom(){
         colbackr = (float)(Math.random()/2);
         colbackg = (float)(Math.random()/2);
@@ -27,7 +27,7 @@ public class ColorZoom implements pptclone.SlideBackground{
     }
     
     /** Draw this slide **/
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         GLU glu = new GLU(); //I need some glue
         
         // Move the "drawing cursor" back
@@ -35,7 +35,7 @@ public class ColorZoom implements pptclone.SlideBackground{
         gl.glTranslatef(0.0f, 0.0f, -6.0f);
         
         // Draw the background
-        gl.glBegin(GL.GL_QUADS);
+        gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(colbackr/2f, colbackg/2f, colbackb/2f);    // Set the current drawing color
         gl.glVertex3f(-5.0f, 5.0f, 0.0f);   // Top left
         gl.glColor3f(colbackr, colbackg, colbackb);    // Set the current drawing color

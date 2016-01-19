@@ -7,7 +7,7 @@
 
 package pptclone;
 
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 public abstract class Transition {
     protected Slide start,end; //Starting and ending slide
@@ -17,7 +17,7 @@ public abstract class Transition {
         end = te;
     }
     
-    public abstract void drawFrame(GL gl); //Draw the next frame of this background
+    public abstract void drawFrame(GL2 gl); //Draw the next frame of this background
     public abstract String getName(); //Get the name of this background
     public abstract boolean isDone(); //Is the transition done?
 }

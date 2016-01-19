@@ -7,7 +7,7 @@
  */
 package pptclone;
 
-import com.sun.opengl.util.Animator;
+import com.jogamp.opengl.util.Animator;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyEvent;
@@ -47,7 +47,7 @@ public class PresentationFrame extends javax.swing.JFrame {
     private SlideBackground loadBackground(String bgtype){
         SlideBackground retval = null;
         
-        File pluginFolder = new File("backgrounds\\");
+        File pluginFolder = new File("backgrounds");
         if(!pluginFolder.exists())
             pluginFolder.mkdir();
         File[] plugins = pluginFolder.listFiles();

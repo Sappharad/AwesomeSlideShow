@@ -16,7 +16,7 @@ public class NullTransition extends Transition {
         super(start,end);
     }
     
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         //It's null! What am I supposed to do?
     }
 

@@ -6,14 +6,14 @@
  */
 package pptclone.backgrounds;
 
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 
 public class SimpleSquare implements pptclone.SlideBackground{
     private int rotval = 0; //Rotation value
     
     /** Draw the current animation frame **/
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         // Move the "drawing cursor" around
         gl.glPushMatrix();
         gl.glTranslatef(0.0f, 0.0f, -6.0f);
@@ -24,7 +24,7 @@ public class SimpleSquare implements pptclone.SlideBackground{
             rotval-=360;
 
         // Drawing Using Triangles
-        gl.glBegin(GL.GL_QUADS);
+        gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(0.75f, 0.0f, 0.0f);    // Set the current drawing color to red
         gl.glVertex3f(-1.0f, 1.0f, 0.0f);   // Top left
         gl.glColor3f(0.0f, 0.75f, 0.0f);    // Set the current drawing color to green

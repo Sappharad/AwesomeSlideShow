@@ -4,9 +4,9 @@
  */
 package pptclone;
 
-import com.sun.opengl.util.j2d.TextRenderer;
+import com.jogamp.opengl.util.awt.TextRenderer;
 import java.awt.Font;
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 
 public class TextItem implements DrawableItem{
@@ -55,7 +55,7 @@ public class TextItem implements DrawableItem{
     /** Draw this text string
      * @param gl The GL context to draw into.
      */
-    public void drawItem(GL gl) {
+    public void drawItem(GL2 gl) {
         txtrender.beginRendering(widthcache,heightcache);
         txtrender.setColor(colr, colg, colb, cola*visibility);
         txtrender.draw(text, (int)(widthcache*xloc), (int)(heightcache*(1-fontsize/100.0-yloc)));

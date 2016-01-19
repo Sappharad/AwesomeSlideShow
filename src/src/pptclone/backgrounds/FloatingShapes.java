@@ -6,15 +6,14 @@
  */
 package pptclone.backgrounds;
 
-import javax.media.opengl.GL;
-import javax.media.opengl.glu.GLU;
-import javax.media.opengl.glu.GLUquadric;
-
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.glu.GLUquadric;
 
 public class FloatingShapes implements pptclone.SlideBackground{
     private float height = 0; //Current location of the shapes.
     
-    public void drawFrame(GL gl) {
+    public void drawFrame(GL2 gl) {
         GLU glu = new GLU();
         
         // Move the "drawing cursor" around
@@ -22,7 +21,7 @@ public class FloatingShapes implements pptclone.SlideBackground{
         gl.glTranslatef(0.0f, 0.0f, -6.0f);
         
         // Draw a gradient for the background
-        gl.glBegin(GL.GL_QUADS);
+        gl.glBegin(GL2.GL_QUADS);
         gl.glColor3f(0.329f/2f, 0.427f/2f, 0.556f/2f);    //Light blue
         gl.glVertex3f(-5.0f, 2.5f, 0.0f);   // Top left
         gl.glColor3f(0.184f/2f, 0.211f/2f, 0.6f/2f);    // Dark blue
