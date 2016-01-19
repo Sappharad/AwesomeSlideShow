@@ -6,7 +6,7 @@
  */
 package pptclone.transitions;
 
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 import pptclone.Slide;
 import pptclone.Transition;
 

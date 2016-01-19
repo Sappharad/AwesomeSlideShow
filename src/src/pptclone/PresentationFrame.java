@@ -149,7 +149,8 @@ public class PresentationFrame extends javax.swing.JFrame {
                         //We want this, it's probably an image node because it the image tag
                         org.w3c.dom.NamedNodeMap attrs = content.item(j).getAttributes();
                         String x = "0.0", y = "0.0", width = "0.5", height = "0.5", layer = "0"; //Attributes
-                        String path = content.item(j).getTextContent();
+                        String path = data.getParent() + File.separator + content.item(j).getTextContent();
+                        
                         for (int k = 0; k < attrs.getLength(); k++) {
                             String attrtype = attrs.item(k).getNodeName();
                             if (attrtype.equalsIgnoreCase("x")) {
@@ -165,7 +166,7 @@ public class PresentationFrame extends javax.swing.JFrame {
                             }
                             
                         }
-                        //Create the text item now, since we have the data
+                        //Create the image item now, since we have the data
                         try {
                             ImageItem myimg = new ImageItem(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(width), Double.parseDouble(height), path, Integer.parseInt(layer));
                             if(Integer.parseInt(layer)>maxslidelayer)

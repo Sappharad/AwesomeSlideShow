@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation>
+
+<slide background="null" transition="genie">
+<text x="0.10" y="0.05" font="Century Gothic" size="10" r="1.0" g="1.0" b="1.0" a="1.0">Image Example</text>
+<image x="0.15" y="0.25" width="0.5" height="0.169">prop_logo.jpg</image>
+</slide>
+
+<slide background="stars" transition="rotate">
+<text x="0.10" y="0.05" font="Century Gothic" size="10" r="1.0" g="1.0" b="1.0" a="1.0">What's left to do?</text>
+<text x="0.06" y="0.20" font="Century Gothic" size="6" r="1.0" g="1.0" b="1.0" a="1.0" layer="1">&#x2022; XML Persistent Storage</text>
+<text x="0.11" y="0.28" font="Century Gothic" size="5" r="1.0" g="1.0" b="1.0" a="1.0" layer="1">&gt;</text>
+<text x="0.14" y="0.28" font="Century Gothic" size="5" r="1.0" g="1.0" b="1.0" a="1.0" layer="1">Low priority</text>
+<text x="0.06" y="0.34" font="Century Gothic" size="6" r="1.0" g="1.0" b="1.0" a="1.0" layer="2">&#x2022; Acceptance Testing</text>
+<text x="0.11" y="0.42" font="Century Gothic" size="5" r="1.0" g="1.0" b="1.0" a="1.0" layer="2">&gt;</text>
+<text x="0.14" y="0.42" font="Century Gothic" size="5" r="1.0" g="1.0" b="1.0" a="1.0" layer="2">Trials &amp; Experiments</text>
+<text x="0.06" y="0.48" font="Century Gothic" size="6" r="1.0" g="1.0" b="1.0" a="1.0" layer="3">&#x2022; Magazine Article</text>
+<text x="0.06" y="0.56" font="Century Gothic" size="6" r="1.0" g="1.0" b="1.0" a="1.0" layer="4">&#x2022; Final Report</text>
+<text x="0.06" y="0.64" font="Century Gothic" size="6" r="1.0" g="1.0" b="1.0" a="1.0" layer="5">&#x2022; Poster</text>
+</slide>
+
+<slide background="stars" transition="rotate">
+<text x="0.10" y="0.05" font="Century Gothic" size="10" r="1.0" g="1.0" b="1.0" a="1.0">Questions?</text>
+<image x="0.25" y="0.25" width="0.25" height="0.25">ufo.jpg</image>
+</slide>
+
+</presentation>

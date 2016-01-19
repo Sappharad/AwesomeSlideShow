@@ -67,7 +67,7 @@ public class ImageItem implements DrawableItem{
               
         gl.glEnable(gl.GL_TEXTURE_2D); //Enable textures
         if(texid<0)
-            texid = (texture != null)? texture.toGL(gl, glu, true): -1;
+            texid = (texture != null)? texture.toGL(gl, glu, false): -1;
         else
             gl.glBindTexture(gl.GL_TEXTURE_2D, texid); //Bind to the texture we copied the framebuffer into
         

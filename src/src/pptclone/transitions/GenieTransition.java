@@ -6,9 +6,8 @@
  */
 package pptclone.transitions;
 
-import com.sun.opengl.util.BufferUtil;
 import java.nio.ByteBuffer;
-import javax.media.opengl.GL;
+import com.jogamp.opengl.GL2;
 import pptclone.Slide;
 import pptclone.Transition;
 import pptclone.glPanel;
