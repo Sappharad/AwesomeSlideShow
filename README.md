@@ -7,7 +7,7 @@ The original goals of the application were as follows:
 * Provide a simple XML format for defining the slide show content.
 * Object positions and sizes would be relative to the slide, (from 0.0 to 1.0) for screen resolution independence.
 * Ability to format text by specifying font, size and color.
-* Include multiple slide transitions.
+* Include multiple slide transitions. Slides continue to animate during transitions.
 * Support 3D animated backgrounds, loaded externally as plug-ins so others could develop their own backgrounds.
 
 All of these goals were met within the 3 weeks allocated for the project.
@@ -24,7 +24,9 @@ When launching the program, a file open dialog appears. Selecting a slideshow XM
 I'm releasing this under GPLv2, so if anyone ever decides to do anything with it (such as create new backgrounds) this will ensure changes get contributed back.
 
 # Screenshots
+One of the backgrounds:
 ![A still screenshot background that is animated]
 (https://raw.githubusercontent.com/Sappharad/AwesomeSlideShow/master/bgsample.jpg)
+Shows the rotate transition between two slides:
 ![A transition between two slides, backgrounds continue to animate during slide transitions]
 (https://raw.githubusercontent.com/Sappharad/AwesomeSlideShow/master/transition.jpg)
