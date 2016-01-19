@@ -17,7 +17,8 @@ In April 2008, I updated the application again to use it for another presentatio
 Since I still liked the idea, I've decided to open source this code as of January 2016. The majority of it has not be modified since April 2008. However, I made some minor changes to ensure it builds and runs against JOGL 2.0.
 
 # To compile and use
-The source code is distributed as a project for the NetBeans IDE. It requires JOGL, which is part of the JOGAMP project. Build the project, then copy all of the classes from the compiled project's "backgrounds" folder into the backgrounds folder in the project root. If running from a .jar file instead of inside the NetBeans IDE, a backgrounds folder with all of the .class plug-ins should be placed in the same directory as the JAR, so the slide background plug-ins can be loaded.
+The source code is distributed as a project for the NetBeans IDE. It requires JOGL, which is part of the JOGAMP project. Build the project, then copy all of the classes from the compiled project's "backgrounds" folder into the backgrounds folder in the project root. If running from a .jar file instead of inside the NetBeans IDE, a backgrounds folder with all of the .class plug-ins should be placed in the same directory as the JAR, so the slide background plug-ins can be loaded.  
+
 When launching the program, a file open dialog appears. Selecting a slideshow XML file (see sample folder for samples) will play the slideshow. Click the mouse or use arrow keys to advance slides. When the slideshow is complete, quit the program using the default keyboard shortcut for the operating system you're running it on. (Alt-F4 on Windows, Command-Q on Mac OS X.)
 
 # License
@@ -26,7 +27,7 @@ I'm releasing this under GPLv2, so if anyone ever decides to do anything with it
 # Screenshots
 One of the backgrounds:
 ![A still screenshot background that is animated]
-(https://raw.githubusercontent.com/Sappharad/AwesomeSlideShow/master/bgsample.jpg)
+(https://raw.githubusercontent.com/Sappharad/AwesomeSlideShow/master/bgsample.jpg)  
 Shows the rotate transition between two slides:
 ![A transition between two slides, backgrounds continue to animate during slide transitions]
 (https://raw.githubusercontent.com/Sappharad/AwesomeSlideShow/master/transition.jpg)
