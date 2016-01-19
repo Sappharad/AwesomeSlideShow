@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation>
+
+<slide background="square" transition="rotate">
+<text x="0.15" y="0.35" font="Comic Sans MS" size="9.5" r="0.9" g="1.0" b="0.9" a="1.0">Background: Square</text>
+<text x="0.3" y="0.55" font="Comic Sans MS" size="8" r="0.9" g="1.0" b="0.9" a="1.0">Transition: Rotate</text>
+</slide>
+
+<slide background="stars" transition="rotate">
+<text x="0.15" y="0.35" font="Comic Sans MS" size="9.5" r="0.9" g="1.0" b="0.9" a="1.0">Background: Starfield</text>
+<text x="0.3" y="0.55" font="Comic Sans MS" size="8" r="0.9" g="1.0" b="0.9" a="1.0">Transition: none</text>
+</slide>
+
+<slide background="floating" transition="genie">
+<text x="0.05" y="0.35" font="Comic Sans MS" size="9.5" r="1.0" g="1.0" b="1.0" a="1.0">Background: Floating circles</text>
+<text x="0.3" y="0.55" font="Comic Sans MS" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Transition: Genie</text>
+</slide>
+
+<slide background="helixblur" transition="rotate">
+<text x="0.05" y="0.35" font="Comic Sans MS" size="9.5" r="1.0" g="1.0" b="1.0" a="1.0">Background: Radial Blur</text>
+<text x="0.3" y="0.55" font="Comic Sans MS" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Transition: Rotate</text>
+</slide>
+
+<slide background="zoom" transition="genie">
+<text x="0.05" y="0.35" font="Comic Sans MS" size="9.5" r="1.0" g="1.0" b="1.0" a="1.0">Background: Radial Blur</text>
+<text x="0.3" y="0.55" font="Comic Sans MS" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Transition: Rotate</text>
+</slide>
+
+</presentation>

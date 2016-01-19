@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation>
+
+<slide background="square" transition="none">
+<text x="0.10" y="0.35" font="Comic Sans MS" size="9.5" r="0.9" g="1.0" b="0.9" a="1.0">CS421 Final Presentation</text>
+<text x="0.3" y="0.55" font="Comic Sans MS" size="8" r="0.9" g="1.0" b="0.9" a="1.0">By Paul Kratt</text>
+</slide>
+
+<slide background="zoom" transition="genie">
+<text x="0.06" y="0.05" font="Arial" size="10" r="1.0" g="1.0" b="1.0" a="1.0">Project purpose</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; To create a PowerPoint clone</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; With 3D elements:</text>
+<text x="0.18" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; Animated backgrounds</text>
+<text x="0.18" y="0.44" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; Cool transitions</text>
+<text x="0.13" y="0.52" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Allow audience engaging presentations</text>
+<text x="0.13" y="0.60" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Free. Similar products cost over $100</text>
+</slide>
+
+<slide background="stars" transition="rotate">
+<text x="0.06" y="0.05" font="Arial" size="10" r="1.0" g="1.0" b="1.0" a="1.0">Project goals</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Create a simple file format to load</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Create at least 4 animated slide backgrounds</text>
+<text x="0.13" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Create at least 2 slide transitions</text>
+<text x="0.13" y="0.44" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Support basic text display</text>
+</slide>
+
+<slide background="stars" transition="rotate">
+<text x="0.06" y="0.05" font="Arial" size="10" r="1.0" g="1.0" b="1.0" a="1.0">What was accomplished?</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Presentation loading using XML files</text>
+<text x="0.13" y="0.28" font="Calibri" size="6" r="1.0" g="1.0" b="0.5" a="1.0">&#x2022; Flexible text display</text>
+<text x="0.13" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Five animated backgrounds</text>
+<text x="0.13" y="0.44" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Two transitions:</text>
+<text x="0.18" y="0.52" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; Rotate</text>
+<text x="0.18" y="0.60" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; The "genie" effect</text>
+<text x="0.13" y="0.68" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Plug-in support for user backgrounds</text>
+</slide>
+
+<slide background="square" transition="genie">
+<text x="0.06" y="0.05" font="Arial" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Background 1: Simple Square</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Used in my Week 8 progress presentation</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Rotating quadrilateral with a gradient</text>
+</slide>
+
+<slide background="zoom" transition="genie">
+<text x="0.06" y="0.05" font="Arial" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Background 2: Disk Zoom</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Circle fills the screen with a random color</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Shrinks back down with background taking</text>
+<text x="0.18" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">that color</text>
+</slide>
+
+<slide background="stars" transition="genie">
+<text x="0.06" y="0.05" font="Arial" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Background 3: Starfield</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Inspired by the screen-saver</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Stars move towards the screen on the Z-axis</text>
+<text x="0.13" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Random direction and velocity</text>
+</slide>
+
+<slide background="floating" transition="genie">
+<text x="0.06" y="0.05" font="Arial" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Background 4: Floating shapes</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Circles endlessly drift slowly into the horizon</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; They get darker as they move away</text>
+</slide>
+
+<slide background="helixblur" transition="rotate">
+<text x="0.06" y="0.05" font="Arial" size="8" r="1.0" g="1.0" b="1.0" a="1.0">Background 5: Radial blur demo</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Original JOGL demo by</text>
+<text x="0.18" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">Pepijn Van Eeckhoudt</text>
+<text x="0.13" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Demonstrates radial blur w/ display capture</text>
+<text x="0.13" y="0.44" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Modifications made:</text>
+<text x="0.18" y="0.52" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; Higher rendering resolution</text>
+<text x="0.23" y="0.60" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">(Originally 640x480)</text>
+<text x="0.18" y="0.68" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; Adjusted for different camera angle</text>
+<text x="0.18" y="0.76" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&gt; Post-rendering "cleanup"</text>
+</slide>
+
+<slide background="helixblur" transition="rotate">
+<text x="0.06" y="0.05" font="Arial" size="10" r="1.0" g="1.0" b="1.0" a="1.0">Lessons learned</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; init() for backgrounds</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Better rendering parameter reset</text>
+<text x="0.13" y="0.36" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Bullets are &amp;#x2022 in XML</text>
+</slide>
+
+<slide background="floating" transition="rotate">
+<text x="0.06" y="0.05" font="Arial" size="10" r="1.0" g="1.0" b="1.0" a="1.0">Future wishes</text>
+<text x="0.13" y="0.20" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Images / Multimedia</text>
+<text x="0.13" y="0.28" font="Arial" size="6" r="1.0" g="1.0" b="1.0" a="1.0">&#x2022; Presentation creation tool</text>
+</slide>
+
+<slide background="floating" transition="none">
+<text x="0.28" y="0.35" font="Comic Sans MS" size="9.5" r="0.9" g="1.0" b="0.9" a="1.0">Any Questions?</text>
+</slide>
+
+</presentation>
